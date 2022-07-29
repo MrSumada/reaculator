@@ -11,3 +11,114 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+
+.calculator {
+  --shadow: rgb(118, 86, 28);
+  --distance: 3px;
+  width: min(70vw, 70vh);
+  height: min(92vw, 92vh);
+  background-color: orange;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid var(--shadow);
+  box-shadow:  calc(var(--distance)) calc(var(--distance)) var(--shadow),
+    calc(2 * var(--distance)) calc(2 * var(--distance)) var(--shadow),
+    calc(3 * var(--distance)) calc(3 * var(--distance)) var(--shadow),
+    calc(4 * var(--distance)) calc(4 * var(--distance)) var(--shadow),
+    calc(5 * var(--distance)) calc(5 * var(--distance)) var(--shadow);
+}
+
+.screen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: min(65vw, 65vh);
+  height: min(20vw, 20vh);
+  margin: auto;
+  margin-top: 1.5vh;
+  background-color: rgb(255, 245, 225);;
+  border-radius: 10px;
+  border: 3px inset rgb(122, 135, 137);
+}
+
+.screen-center {
+  justify-content: center;
+}
+
+.display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 4em;
+  margin: 5%;
+}
+
+.buttons {
+  margin: auto;
+  margin-top: 2vh;
+  height: 71%;
+  width: min(65vw,65vh);
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-column-gap: 2vh;
+  grid-row-gap: 2vw;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 2.5em;
+  font-family: 'Orbitron', sans-serif;
+  background-color: rgb(244, 199, 118);
+  border-radius: 5px;
+  border: 2px outset rgb(211, 138, 4);
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgb(255, 245, 225);
+}
+
+.button:active {
+  background-color: aquamarine;
+  color: rgb(211, 138, 4);
+}
+
+#button-Enter {
+  grid-column: 3 / span 2;
+}
+
+#button-plus, #button-minus {
+  font-size: 4em;
+}
+
+#button-minus {
+  padding-top: 6%;
+}
+
+@media screen and (max-width: 550px) {
+  .buttons {
+    grid-column-gap: 1vh;
+    grid-row-gap: 1vw;
+  }
+
+  .button, #button-plus, #button-minus  {
+    font-size: 1.5em;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+}
