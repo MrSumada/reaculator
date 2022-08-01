@@ -48,7 +48,7 @@ const Calculator = () => {
 
     const add = (num) => {
         setValue(parseFloat(value)+parseFloat(num));
-        setCurrentNum((parseFloat(value)+parseFloat(num).toFixed(6)));
+        setCurrentNum((parseFloat(value)+parseFloat(num)));
     }
     const subtract = (num) => {
         setValue(parseFloat(value)-parseFloat(num));
