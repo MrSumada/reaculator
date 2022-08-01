@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const Calculator = () => {
 
@@ -18,7 +18,8 @@ const Calculator = () => {
             setEquation(`${func}`)
         }
         if (func === '√') {
-            sqrt(currentNum) };
+            if (currentNum) { sqrt(currentNum) }
+        };
         
         if (func === '⌫') { 
             setCurrentNum('');
@@ -26,7 +27,24 @@ const Calculator = () => {
             setEquation('');
             setDisplay(true);
         }
-        if (typeof func === "number" || func === ".") { 
+
+        if (func === '.') {
+            let decCheck = `${currentNum}`;
+            if (clearNext) {
+                setCurrentNum('0.')
+                setClearNext(false)
+            } else {
+                if (!decCheck.includes(".")) {
+                    if (currentNum === 0 || currentNum === '') {
+                        setCurrentNum('0.')
+                    } else {
+                        setCurrentNum(`${currentNum}` + func);
+                    }
+                }
+            }
+        }
+
+        if (typeof func === "number") { 
             setCurrentNum(`${currentNum}` + func);
             if (clearNext || currentNum === 0) { 
                 setCurrentNum(func)
@@ -39,12 +57,9 @@ const Calculator = () => {
             if (equation === 'x') { multiply(currentNum) };
             if (equation === 'ⴻ') { divide(currentNum) };
             if (equation === '^') { exponent(currentNum) };
+            setEquation('');
         }
     }
-
-    useEffect(() => {console.log(currentNum)}, [currentNum])
-    useEffect(() => {console.log(equation)}, [equation])
-    useEffect(() => {console.log(value)}, [value])
 
     const add = (num) => {
         setValue(parseFloat(value)+parseFloat(num));
@@ -75,7 +90,6 @@ const Calculator = () => {
         } else {
             setCurrentNum(total);
         }
-        
     }
 
     return(
@@ -85,7 +99,6 @@ const Calculator = () => {
                     ? <h1 className="display">Reaculator</h1>
                     : <h1 className="display">{currentNum}</h1>
                 }
-                
             </div>
             <div className="buttons">
                 {buttonsArr.map((e, i) => 

@@ -35,7 +35,15 @@ code {
     calc(3 * var(--distance)) calc(3 * var(--distance)) var(--shadow),
     calc(4 * var(--distance)) calc(4 * var(--distance)) var(--shadow),
     calc(5 * var(--distance)) calc(5 * var(--distance)) var(--shadow);
+  margin-bottom: calc(600px - 100vw);
 }
+
+@media screen and (min-width: 600px) {
+  .calculator {
+    margin-bottom: 0;
+  }
+}
+
 
 .screen {
   display: flex;
@@ -118,6 +126,11 @@ h1 {
 }
 
 @media screen and (max-width: 630px) {
+
+  /* .calculator {
+    margin-bottom: 10vh;
+  } */
+
   .buttons {
     grid-column-gap: 1vh;
     grid-row-gap: 1vw;
@@ -131,9 +144,10 @@ h1 {
 }
 
 @media screen and (max-width: 330px) {
-.buttons {
-  margin-top: .5vh;
-}
+
+  .buttons {
+    margin-top: .5vh;
+  }
 
   .button, #button-plus, #button-minus  {
     font-size: 1em;
