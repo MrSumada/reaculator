@@ -82,7 +82,7 @@ const Calculator = () => {
         <div className="calculator">
             <div className="screen screen-center">
                 {(display === true)
-                    ? <h1 className="display">Calculator</h1>
+                    ? <h1 className="display">Reaculator</h1>
                     : <h1 className="display">{currentNum}</h1>
                 }
                 
