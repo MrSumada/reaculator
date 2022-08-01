@@ -25,7 +25,7 @@ code {
   --shadow: rgb(118, 86, 28);
   --distance: 3px;
   width: min(70vw, 70vh);
-  height: min(92vw, 92vh);
+  height: min(96vw, 96vh);
   background-color: orange;
   border-radius: 10px;
   padding: 10px;
@@ -45,9 +45,15 @@ code {
   height: min(20vw, 20vh);
   margin: auto;
   margin-top: 1.5vh;
-  background-color: rgb(255, 245, 225);;
+  background-color: rgb(255, 245, 225);
   border-radius: 10px;
   border: 3px inset rgb(122, 135, 137);
+}
+
+h1 {
+  overflow: hidden;
+  max-width: min(60vw, 60vh);
+  text-overflow: ellipsis;
 }
 
 .screen-center {
@@ -56,7 +62,7 @@ code {
 
 .display {
   font-family: 'Orbitron', sans-serif;
-  font-size: 4em;
+  font-size: min(4em, calc(1em + 4.5vw));
   margin: 5%;
 }
 
@@ -67,7 +73,7 @@ code {
   width: min(65vw,65vh);
   display: grid;
   grid-template-columns: 2fr 2fr 2fr 2fr;
-  grid-template-rows: 2fr 2fr 2fr 2fr;
+  grid-template-rows: 2fr 2fr 2fr 2fr 2fr;
   grid-column-gap: 2vh;
   grid-row-gap: 2vw;
   justify-items: stretch;
@@ -103,14 +109,15 @@ code {
 }
 
 #button-plus, #button-minus {
-  font-size: 4em;
+  font-size: 3em;
+  font-weight: 100;
 }
 
 #button-minus {
   padding-top: 6%;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 630px) {
   .buttons {
     grid-column-gap: 1vh;
     grid-row-gap: 1vw;
@@ -120,5 +127,17 @@ code {
     font-size: 1.5em;
     padding-top: 3px;
     padding-bottom: 3px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+.buttons {
+  margin-top: .5vh;
+}
+
+  .button, #button-plus, #button-minus  {
+    font-size: 1em;
+    padding-top: 1px;
+    padding-bottom: 1px;
   }
 }
